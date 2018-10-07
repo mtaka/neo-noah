@@ -1,0 +1,41 @@
+<%= form_with(model: article, remote: true) do |form| %>
+  <table class='table'>
+    <tr>
+      <div class="field">
+        <th> <%= form.label :title %> </th>
+        <td> <%= form.text_field :title %> </td>
+      </div>
+    </tr>
+    <tr>
+      <div class="field">
+        <th> <%= form.label :subtitle %> </th>
+        <td> <%= form.text_field :subtitle %> </td>
+      </div>
+    </tr>
+    <tr>
+      <div class="field">
+        <th> <%= form.label :url %> </th>
+        <td> <%= form.text_field :url %> </td>
+      </div>
+    </tr>
+    <tr>
+      <div class="field">
+        <th> <%= form.label :abstract %> </th>
+        <td> <%= form.text_area :abstract %> </td>
+      </div>
+    </tr>
+    <tr>
+      <div class="field">
+        <th> <%= form.label :description %> </th>
+        <td> <%= form.text_area :description %> </td>
+      </div>
+    </tr>
+    <tr>
+      <div colspan='2'>
+        <td> <%= form.submit 'Update', class: 'btn btn-primary' %>
+      </div>
+    </tr>
+  </table>
+
+  </div>
+<% end %>
