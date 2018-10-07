@@ -1,0 +1,29 @@
+<p>
+  <strong>Title:</strong>
+  <%= article.title %>
+</p>
+
+<p>
+  <strong>Subtitle:</strong>
+  <%= article.subtitle %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= article.url %>
+</p>
+
+<p>
+  <strong>Abstract:</strong>
+  <%= article.abstract %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= article.description %>
+</p>
+
+<%= link_to 'Edit', edit_article_path(article), remote: true, class: 'edit' %>
+
+
+
