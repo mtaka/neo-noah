@@ -4,4 +4,12 @@
   <%= render partial: 'show', locals: {article: @article} %>
 </div>
 <hr>
+<div>
+  <% @article.chapters.each do |chapter| %>
+    <li>
+      <%= chapter.role %>
+    </li>
+  <% end %>
+</div>
+<hr>
 <%= link_to 'Index', articles_path %>

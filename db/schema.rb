@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_05_202426) do
+ActiveRecord::Schema.define(version: 2018_10_07_024830) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 2018_10_05_202426) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "chapters", force: :cascade do |t|
+    t.integer "article_id"
+    t.string "role"
+    t.string "title"
+    t.string "subtitle"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_chapters_on_article_id"
   end
 
 end
