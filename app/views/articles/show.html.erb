@@ -6,10 +6,10 @@
 <hr>
 <div>
   <% @article.chapters.each do |chapter| %>
-    <li>
-      <%= chapter.role %>
-    </li>
+    <div id='chapter_<%= chapter.id %>'>
+      <%= render partial: 'chapters/show', locals: {chapter: chapter} %>
+    </div>
+    <hr>
   <% end %>
 </div>
-<hr>
 <%= link_to 'Index', articles_path %>

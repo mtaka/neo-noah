@@ -22,7 +22,7 @@
 
 <p>
   <strong>Body:</strong>
-  <%= @chapter.body %>
+  <%= md2html @chapter.body %>
 </p>
 
 <%= link_to 'Edit', edit_chapter_path(@chapter) %> |
