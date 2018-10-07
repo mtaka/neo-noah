@@ -1,0 +1,4 @@
+$('#chapter_<%= @chapter.id %>').html('<%=
+  j(render(partial: 'chapters/form', locals: {chapter: @chapter}))
+%>')
+
