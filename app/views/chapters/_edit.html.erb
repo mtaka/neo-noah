@@ -1,0 +1,31 @@
+<%= form_with(model: chapter, local: true) do |form| %>
+  <table class='table'>
+    <tr>
+      <div class="field">
+        <td> <%= form.label :title %> </td>
+        <td> <%= form.text_field :title, size: 80 %> </td>
+      </div>
+    </tr>
+    <tr>
+      <div class="field">
+        <td> <%= form.label :subtitle %> </td>
+        <td> <%= form.text_field :subtitle, size: 80 %> </td>
+      </div>
+    </tr>
+    <tr>
+      <div class="field">
+        <td> <%= form.label :body %> </td>
+        <td> <%= form.text_area :body, cols: 100, rows: 20 %> </td>
+      </div>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div class="actions">
+          <%= form.submit 'Update'  %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+  </table>
+
+<% end %>
