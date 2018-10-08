@@ -43,6 +43,7 @@ class ChaptersController < ApplicationController
     respond_to do |format|
       if @chapter.update(chapter_params)
         format.html { redirect_to @chapter, notice: 'Chapter was successfully updated.' }
+        format.js
         format.json { render :show, status: :ok, location: @chapter }
       else
         format.html { render :edit }
