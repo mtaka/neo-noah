@@ -1,0 +1,4 @@
+$('#article_<%= @article.id %>').html('<%=
+  j(render(partial: 'show', locals: {article: @article}))
+%>')
+
