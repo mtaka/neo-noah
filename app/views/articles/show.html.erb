@@ -1,15 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<div id='article_<%= @article.id %>'>
-  <%= render partial: 'show', locals: {article: @article} %>
-</div>
-<hr>
-<div>
-  <% @article.chapters.each do |chapter| %>
-    <div id='chapter_<%= chapter.id %>'>
-      <%= render partial: 'chapters/show', locals: {chapter: chapter} %>
+<div class='article'>
+  <div id='article_<%= @article.id %>'>
+    <%= render partial: 'show', locals: {article: @article} %>
+  </div>
+
+
+  <hr>
+  <h4>Chapters</h4>
+
+  <div class='p-3'>
+    <div class='chapters row'>
+      <div class='left col-3'>
+        <nav class='nav flex-column nav-pills'>
+          <% @article.chapters.each_with_index do |chapter,i| %>
+            <a
+   class='nav-link<%= i==0 ? ' active' : '' %>'
+   href='#tab_chap<%= chapter.id %>'
+   data-toggle='tab'
+   >
+              <%= chapter.role %>
+            </a>
+          <% end %>
+        </nav>
+      </div>
+
+      <div class='right col-9'>
+        <div class='tab-content'>
+          <% @article.chapters.each_with_index do |chapter, i| %>
+            <div class='tab-pane<%= i==0 ? ' active' : ''%>' id='tab_chap<%= chapter.id %>'>
+              <div id='chapter_<%= chapter.id %>'>
+                <%= render partial: 'chapters/show', locals: {chapter: chapter} %>
+              </div>
+              <hr>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <hr>
-  <% end %>
+  </div>
 </div>
+
 <%= link_to 'Index', articles_path %>
