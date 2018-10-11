@@ -2,7 +2,44 @@
 
 <div class='article'>
   <div id='article_<%= @article.id %>'>
-    <%= render partial: 'show', locals: {article: @article} %>
+    <nav class='nav pills'>
+      <a class='nav-link active' href='#head'data-toggle='tab'>Head</a>
+      <% @article.infos.each do |info| %>
+        <a class='nav-link' href='#info<%= info.id %>' data-toggle='tab'>
+          <%= info.title %>
+        </a>
+      <% end %>
+    </nav>
+
+    <div class='p-5'>
+      <div class='tab-content'>
+        <div class='tab-pane active' id='head'>
+          <%= render partial: 'show', locals: {article: @article} %>
+        </div>
+<style type='text/css'>
+.from_to_pair {
+  padding: 5;
+  display: flex;
+  flex-direction: row;
+}
+.from {
+  width: 40%;
+  margin: 2px;
+  background-color: #ffc;
+}
+.to {
+  width: 60%;
+  margin: 2px;
+  background-color: #fcc;
+}
+</style>
+        <% @article.infos.each do |info| %>
+          <div class='tab-pane' id='info<%= info.id %>'>
+            <%= render partial: 'infos/show', locals: {info: info}  %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 
 
@@ -14,11 +51,8 @@
       <div class='left col-3'>
         <nav class='nav flex-column nav-pills'>
           <% @article.chapters.each_with_index do |chapter,i| %>
-            <a
-   class='nav-link<%= i==0 ? ' active' : '' %>'
-   href='#tab_chap<%= chapter.id %>'
-   data-toggle='tab'
-   >
+            <a class='nav-link<%= i==0 ? ' active' : '' %>'
+               href='#tab_chap<%= chapter.id %>'data-toggle='tab'>
               <%= chapter.role %>
             </a>
           <% end %>
