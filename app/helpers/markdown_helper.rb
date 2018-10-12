@@ -13,6 +13,7 @@ module MarkdownHelper
     #html = CommonMarker.render_html(text)
     #renderer = CustomRenderer.new
     #markdown = Redcarpet::Markdown.new(render)
+    text = text || ''
     markdown = Redcarpet::Markdown.new(CustomRenderer)
     html = markdown.render(text)
     raw(html)
