@@ -69,4 +69,5 @@ gem 'jquery-rails'
 
 #gem 'commonmarker'
 gem 'redcarpet'
+gem 'config'
 
