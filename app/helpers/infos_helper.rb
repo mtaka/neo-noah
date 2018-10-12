@@ -2,9 +2,11 @@ module InfosHelper
   def desc info
     case info.data_type
     when 'FromToPairs'
-      raw build_pairs_div_from_lines(info.data, %w|from to|).join
+      data = info.data||''
+      raw build_pairs_div_from_lines(data, %w|from to|).join
     when 'NameValuePairs'
-      raw build_pairs_div_from_lines(info.data, %w|name value|).join
+      data = info.data||''
+      raw build_pairs_div_from_lines(data, %w|name value|).join
     else
       info.data
     end
