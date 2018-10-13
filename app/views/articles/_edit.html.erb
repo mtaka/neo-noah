@@ -20,6 +20,12 @@
     </tr>
     <tr>
       <div class="field">
+        <th> <%= form.label :cover_image_url %> </th>
+        <td> <%= form.text_field :cover_image_url, size: 80 %> </td>
+      </div>
+    </tr>
+    <tr>
+      <div class="field">
         <th> <%= form.label :abstract %> </th>
         <td> <%= form.text_area :abstract, cols: 60, rows: 8 %> </td>
       </div>
@@ -32,7 +38,7 @@
     </tr>
     <tr>
       <div colspan='2'>
-        <td> <%= form.submit 'Update', class: 'btn btn-primary' %>
+        <td> <%= form.submit 'Update', class: 'update btn btn-primary' %>
       </div>
     </tr>
   </table>

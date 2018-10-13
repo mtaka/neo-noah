@@ -15,4 +15,7 @@ class CaseStudyArticle < Article
   ]
   def default_info_atts; DEFAULT_INFO_ATTS; end
   def default_chapter_atts; DEFAULT_CHAPTER_ATTS; end
+  def self.model_neme
+    Article.model_neme
+  end
 end

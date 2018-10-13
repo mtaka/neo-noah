@@ -1,7 +1,14 @@
 module MarkdownHelper
   class CustomRenderer < Redcarpet::Render::HTML
+    def resolve_url addr
+      if addr !~/^http/
+        base = Settings.base_url || ''
+        addr =  base + addr
+      end
+      addr
+    end
     def image(link, title, alt)
-      base = Settings.base_url || ''; link =  base+link
+      link = resolve_url(link)
       ttl = title.gsub(';;', ' ')
       cap = title.gsub(';;', '<br>')
       img = %(<div class='image'><img src='#{link}' alt='#{ttl}' title='#{ttl}'></div>)

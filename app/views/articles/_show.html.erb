@@ -1,27 +1,29 @@
-<p>
-  <strong>Title:</strong>
-  <%= article.title %>
-</p>
-
-<p>
-  <strong>Subtitle:</strong>
-  <%= article.subtitle %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= article.url %>
-</p>
-
-<p>
-  <strong>Abstract:</strong>
-  <%= article.abstract %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= article.description %>
-</p>
+<div class='row'>
+  <div class='col-2 left'>Title:</div>
+  <div class='col-10 right title'> <%= article.title %> </div>
+</div>
+<div class='row'>
+  <div class='col-2 left'>Subtitle:</div>
+  <div class='col-10 right subtitle'> <%= article.subtitle %> </div>
+</div>
+<div class='row'>
+  <div class='col-2 left'>Url:</div>
+  <div class='col-10 right url'> <%= link_to article.url, article.url, {target: '_blank'}  %> </div>
+</div>
+<div class='row'>
+  <div class='col-2 left'>Cover Image:</div>
+  <div class='col-10 right cover_image_url'>
+  <%= image_tag article.cover_image_url %>
+  </div>
+</div>
+<div class='row'>
+  <div class='col-2 left'>Abstract:</div>
+  <div class='col-10 right abstract:'> <%= article.abstract  %> </div>
+</div>
+<div class='row'>
+  <div class='col-2 left'>Description:</div>
+  <div class='col-10 right Description:'> <%= article.description  %> </div>
+</div>
 
 <%= link_to 'Edit', edit_article_path(article), remote: true, class: 'edit btn btn-primary' %>
 

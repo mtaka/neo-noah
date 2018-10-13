@@ -27,6 +27,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :cover_image_url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="field">
     <%= form.label :abstract %>
     <%= form.text_area :abstract %>
   </div>
@@ -34,6 +39,11 @@
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type %>
   </div>
 
   <div class="actions">
