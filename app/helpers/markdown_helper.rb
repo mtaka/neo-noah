@@ -17,11 +17,16 @@ module MarkdownHelper
     end
   end
 
+  def sc2br src
+    src.gsub(';;', '<br>')
+  end
+
   def md2html text
     #html = CommonMarker.render_html(text)
     #renderer = CustomRenderer.new
     #markdown = Redcarpet::Markdown.new(render)
     text = text || ''
+    text = sc2br(text)
     markdown = Redcarpet::Markdown.new(CustomRenderer)
     html = markdown.render(text)
     raw(html)
