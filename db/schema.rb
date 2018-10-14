@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_13_115953) do
+ActiveRecord::Schema.define(version: 2018_10_14_062442) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_10_13_115953) do
     t.datetime "updated_at", null: false
     t.string "type"
     t.string "cover_image_url"
+    t.string "video_url"
   end
 
   create_table "chapters", force: :cascade do |t|

@@ -1,4 +1,4 @@
-<%= form_with(model: article, remote: true) do |form| %>
+<%= form_with(model: article, as: 'article', remote: true) do |form| %>
   <table class='table'>
     <tr>
       <div class="field">
@@ -22,6 +22,12 @@
       <div class="field">
         <th> <%= form.label :cover_image_url %> </th>
         <td> <%= form.text_field :cover_image_url, size: 80 %> </td>
+      </div>
+    </tr>
+    <tr>
+      <div class="field">
+        <th> <%= form.label :video_url %> </th>
+        <td> <%= form.text_field :video_url, size: 80 %> </td>
       </div>
     </tr>
     <tr>

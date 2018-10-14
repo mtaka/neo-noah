@@ -13,7 +13,13 @@
 <div class='row'>
   <div class='col-2 left'>Cover Image:</div>
   <div class='col-10 right cover_image_url'>
-  <%= image_tag resolve_url(article.cover_image_url) %>
+    <%= image_tag resolve_url(article.cover_image_url) if article.cover_image_url %>
+  </div>
+</div>
+<div class='row'>
+  <div class='col-2 left'>Video Url:</div>
+  <div class='col-10 right video_url'>
+  <%= article.video_url if article.video_url %>
   </div>
 </div>
 <div class='row'>

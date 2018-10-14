@@ -2,33 +2,19 @@
 
 <h1>Infos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Article</th>
-      <th>Role</th>
-      <th>Title</th>
-      <th>Data</th>
-      <th>Data type</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class='row'>
+  <% @infos.each do |info| %>
+    <div class='col-1'> <%= info.article.id %> </div>
+    <div class='col-6'> <%= info.article.title %> </div>
+    <div class='col-1'> <%= info.role %> </div>
+    <div class='col-1'> <%= info.title %> </div>
+    <div class='col-1'> <%= link_to 'Show', info %> </div>
+    <div class='col-1'> <td><%= link_to 'Edit', edit_info_path(info) %></div>
+    <div class='col-1'> <td><%= link_to 'Destroy', info, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+  <% end %>
+</div>
 
-  <tbody>
-    <% @infos.each do |info| %>
-      <tr>
-        <td><%= info.article %></td>
-        <td><%= info.role %></td>
-        <td><%= info.title %></td>
-        <td><%= info.data %></td>
-        <td><%= info.data_type %></td>
-        <td><%= link_to 'Show', info %></td>
-        <td><%= link_to 'Edit', edit_info_path(info) %></td>
-        <td><%= link_to 'Destroy', info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
 
 <br>
 

@@ -5,7 +5,14 @@ class Article < ApplicationRecord
   DEFAULT_CHAPTER_ATTS = []
   def default_info_atts; DEFAULT_INFO_ATTS; end
   def default_chapter_atts; DEFAULT_CHAPTER_ATTS; end
-  def build_defaults type, atts_ref
+  def self.build_instance! type
+    if article = type.constantize.create!
+      article.build_default_infos!
+      article.build_default_chapters!
+    end
+    article
+  end
+  def build_defaults! type, atts_ref
     tb, atts = send(type), send(atts_ref)
     atts.each do |att|
       role = att[:role]
@@ -14,6 +21,6 @@ class Article < ApplicationRecord
       end
     end
   end
-  def build_default_infos; build_defaults :infos, :default_info_atts; end
-  def build_default_chapters; build_defaults :chapters, :default_chapter_atts; end
+  def build_default_infos!; build_defaults! :infos, :default_info_atts; end
+  def build_default_chapters!; build_defaults! :chapters, :default_chapter_atts; end
 end

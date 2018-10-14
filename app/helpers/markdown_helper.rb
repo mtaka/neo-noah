@@ -8,6 +8,7 @@ module MarkdownHelper
       addr
     end
     def image(link, title, alt)
+      link=link||''; title=title||''; alt=alt||''
       link = resolve_url(link)
       ttl = title.gsub(';;', ' ')
       cap = title.gsub(';;', '<br>')
